@@ -73,7 +73,22 @@ export default class Body extends React.Component {
           return (
             <div key={'subsection-' + idx}>
               <Content title={subsection.title} />
-              <Content image={subsection.image} />
+              {subsection.image && (
+                subsection.caption ? (
+                  <figure className="uk-margin-small-bottom">
+                    <img
+                      src={subsection.image}
+                      className="uk-align-center uk-responsive-width"
+                      alt=""
+                    />
+                    <figcaption className="uk-text-center uk-text-meta uk-margin-small-top">
+                      {subsection.caption}
+                    </figcaption>
+                  </figure>
+                ) : (
+                  <Content image={subsection.image} />
+                )
+              )}
               <Content text={subsection.text} />
             </div>
           );

@@ -23,6 +23,7 @@ export default class Authors extends React.Component {
                 <a target="_blank" className="uk-link-toggle" href={author.url}>
                   {author.name}
                 </a>
+                {author.note && <sup className="uk-margin-small-left">{author.note}</sup>}
                 <sup>{author.affiliation.join(',')}</sup>
               </span>
             );

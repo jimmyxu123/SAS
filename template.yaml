@@ -3,7 +3,6 @@ theme: default
 organization: University of Maryland
 title: "Scheduling Thoughts: Learning the Order of Thought in Diffusion Language Models"
 journal: "Preprint 2026"
-teaser: "teaser.png"
 url: "https://jimmyxu123.github.io/SAS/"
 image: "teaser.png"
 resources:
@@ -21,12 +20,14 @@ authors:
     affiliation: [1]
   - name: "Yifan Chen"
     affiliation: [2]
+    note: "†"
   - name: "Furong Huang"
     affiliation: [1]
+    note: "†"
 affiliations:
   - "University of Maryland"
   - "UCLA"
-meta: "† Equal advising (Y. Chen, F. Huang)"
+meta: "† Equal advising"
 
 abstract: |
   Masked diffusion language models decode by iteratively unmasking tokens. We introduce **Self-Aware Scheduling (SAS)**, which learns a lightweight order policy using **GRPO**. SAS improves both structured and
@@ -36,11 +37,15 @@ abstract: |
 body:
   - title: "Overview"
     image: "intro_figure.png"
+    caption: |
+      Figure 1: Overview of the Self-Aware Scheduling (SAS) framework.
+      Left (Training): The order policy $v_\phi$ samples multiple unmasking permutations ($\sigma_1, \sigma_2, \dots$) for a frozen diffusion model. These orders are evaluated using our Self-Aware Reward, which measures the cumulative log-likelihood of the generation under that specific order. The policy is then optimized via GRPO to favor orders that maximize the model's own confidence.
+      Right (Inference): The trained policy dictates the optimal unmasking sequence, guiding the diffusion model to generate high-quality outputs efficiently.
   - title: "The Self-Aware Reward"
     text: |
       We derive a tractable upper bound on the sequential decoding mismatch using KL divergence. This induces a dense reward over trajectories:
       
-      $$ \mathcal{R}(\tau) = \sum_{t=1}^{N} \log p_\theta^{i_t}(x_{i_t} \mid \tilde{x}^{(t-1)}(\sigma))$$
+      $$ \mathcal{R}(x, \sigma) = \sum_{t=1}^{N} \log p_\theta^{i_t}(x_{i_t} \mid \tilde{x}^{(t-1)}(\sigma))$$
       
       By maximizing this reward, the policy learns to select tokens that the model is most confident about in context.
 

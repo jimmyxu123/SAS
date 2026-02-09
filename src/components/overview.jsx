@@ -12,11 +12,13 @@ export default class Overview extends React.Component {
   render() {
     return (
       <div className="uk-section">
-        <img
-          src={`${this.props.teaser}`}
-          className="uk-align-center uk-responsive-width"
-          alt=""
-        />
+        {this.props.teaser && (
+          <img
+            src={this.props.teaser}
+            className="uk-align-center uk-responsive-width"
+            alt=""
+          />
+        )}
         <h2 className="uk-text-bold uk-heading-line uk-text-center">
           <span>Abstract</span>
         </h2>
