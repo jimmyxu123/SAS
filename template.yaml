@@ -1,71 +1,55 @@
 base_url: "/SAS"
-theme: default # default || classic || dark
+theme: default
 organization: University of Maryland
-twitter: ''
-title: "Scheduling Thoughts: Learning the Order of Thought in Diffusion Language Models"
+title: "Scheduling Thoughts"
 journal: "Preprint 2026"
 resources:
-  paper: # Add your PDF link here
-  arxiv: https://arxiv.org
-  code: https://github.com/jimmyxu123/SAS
-description: Self-Aware Scheduling (SAS) for optimized token unmasking in diffusion models.
+  paper: "#"
+  arxiv: "https://arxiv.org"
+  code: "https://github.com/jimmyxu123/SAS"
+description: "Learning the Order of Thought in Diffusion Language Models"
 
 authors:
-  - name: Jiawei Xu
+  - name: "Jiawei Xu"
     affiliation: [1]
-    url: https://github.com/jimmyxu123
-  - name: Minghui Liu
+    url: "https://github.com/jimmyxu123"
+  - name: "Minghui Liu"
     affiliation: [1]
-  - name: Aakriti Agrawal
+  - name: "Aakriti Agrawal"
     affiliation: [1]
-  - name: Yifan Chen
+  - name: "Yifan Chen"
     affiliation: [2]
-  - name: Furong Huang
+  - name: "Furong Huang"
     affiliation: [1]
 affiliations:
-  - University of Maryland, College Park
-  - University of California, Los Angeles
-
-bibtex: >
-  @article{xu2026scheduling,
-    author    = {Jiawei Xu and Minghui Liu and Aakriti Agrawal and Yifan Chen and Furong Huang},
-    title     = {Scheduling Thoughts: Learning the Order of Thought in Diffusion Language Models},
-    journal   = {arXiv preprint},
-    year      = {2026}
-  }
+  - "University of Maryland"
+  - "UCLA"
 
 abstract: |
-  Masked diffusion language models decode by iteratively unmasking tokens, where the unmasking order defines an **"order of thought"** that strongly influences generation quality. We introduce **Self-Aware Scheduling (SAS)**, which learns a lightweight order policy using **Group Relative Policy Optimization (GRPO)**. SAS improves Sudoku accuracy from 82.0% to 91.8% (97.5% with fine-tuning) and GSM8K performance from 64% to 76%, consistently matching or exceeding heuristic schedules across benchmarks.
+  Masked diffusion language models decode by iteratively unmasking tokens. We introduce **Self-Aware Scheduling (SAS)**, which learns a lightweight order policy using **Group Relative Policy Optimization (GRPO)**. SAS improves Sudoku accuracy from 82.0% to 91.8% and GSM8K performance from 64% to 76%.
 
 body:
-  - title: The Self-Aware Reward
+  - title: "The Self-Aware Reward"
     text: |
-      We cast order selection as a principled policy optimization problem. The core of SAS is a dense self-aware reward derived from a tractable upper bound on the sequential decoding mismatch:
-
+      We derive a tractable upper bound on the sequential decoding mismatch using KL divergence. This induces a dense reward over trajectories:
+      
       $$ \mathcal{R}(\tau) = \sum_{t=1}^{L} \log p(x_{o_t} | x_{<t}, \text{mask}) $$
+      
+      By maximizing this reward, the policy learns to select tokens that the model is most confident about in context.
 
-      By maximizing this reward, the policy learns to select tokens that the model is most "confident" about in the context of the current trajectory.
-
-  - title: Experimental Results
+  - title: "Key Performance Gains"
     text: |
-      SAS achieves significant performance gains across diverse reasoning and coding tasks.
-
-      ### Main Benchmarks
-      | **Task** | **Model** | **Heuristic (Best)** | **SAS (Ours)** |
-      |----------|-----------|----------------------|----------------|
+      SAS consistently outperforms heuristic schedules across reasoning benchmarks.
+      
+      | Task | Model | Heuristic | **SAS (Ours)** |
+      |:---|:---|:---|:---|
       | **Sudoku** | SMDM-1B | 82.0% | **91.8%** |
       | **GSM8K** | LLaDA-8B | 64.0% | **76.0%** |
       | **MBPP** | LLaDA-8B | 39.5% | **41.0%** |
 
-      ### Visualizing the Order of Thought
-      In Sudoku, the learned policy naturally discovers an "easy-to-hard" curriculum, resolving high-certainty "naked singles" first to simplify the remaining puzzle constraints.
-
-  - title: Policy Comparison
-    text: |
-      We evaluate different policy architectures, including feature-based and hidden-state variants. Across settings, the feature-based order policy proves robust and often outperforms complex hidden-state variants.
-
-      ```python
-      # Example of the SAS Reward Calculation
-      def calculate_sas_reward(log_probs, trajectory):
-          return sum(log_probs[t] for t in trajectory)
-      ```
+bibtex: |
+  @article{xu2026scheduling,
+    title={Scheduling Thoughts: Learning the Order of Thought in Diffusion Language Models},
+    author={Xu, Jiawei and Liu, Minghui and Agrawal, Aakriti and Chen, Yifan and Huang, Furong},
+    year={2026}
+  }
