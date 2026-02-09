@@ -1,14 +1,13 @@
 base_url: "/SAS"
 theme: default
 organization: University of Maryland
-title: "Scheduling Thoughts"
-journal: "Preprint 2026"
+title: "Scheduling Thoughts: Learning the Order of Thought in Diffusion Language Models"
+#journal: "Preprint 2026"
 teaser: "teaser.png"
 url: "https://jimmyxu123.github.io/SAS/"
 image: "teaser.png"
 resources:
-  paper: "#"
-  arxiv: "https://arxiv.org"
+  paper: "https://arxiv.org/"
   code: "https://github.com/jimmyxu123/SAS"
 description: "Learning the Order of Thought in Diffusion Language Models"
 
@@ -27,16 +26,21 @@ authors:
 affiliations:
   - "University of Maryland"
   - "UCLA"
+meta: "† Equal advising (Y. Chen, F. Huang)"
 
 abstract: |
-  Masked diffusion language models decode by iteratively unmasking tokens. We introduce **Self-Aware Scheduling (SAS)**, which learns a lightweight order policy using **Group Relative Policy Optimization (GRPO)**. SAS improves Sudoku accuracy from 82.0% to 91.8% and GSM8K performance from 64% to 76%.
-
+  Masked diffusion language models decode by iteratively unmasking tokens. We introduce **Self-Aware Scheduling (SAS)**, which learns a lightweight order policy using **GRPO**. SAS improves both structured and
+open-ended reasoning across domains and scales---from Sudoku with a 1B model to math and code
+reasoning with LLaDA-8B---and remains robust across generation lengths and semi-autoregressive
+block decoding.
 body:
+  - title: "Overview"
+    image: "intro_figure.png"
   - title: "The Self-Aware Reward"
     text: |
       We derive a tractable upper bound on the sequential decoding mismatch using KL divergence. This induces a dense reward over trajectories:
       
-      $$ \mathcal{R}(\tau) = \sum_{t=1}^{L} \log p(x_{o_t} | x_{<t}, \text{mask}) $$
+      $$ \mathcal{R}(\tau) = \sum_{t=1}^{N} \log p_\theta^{i_t}(x_{i_t} \mid \tilde{x}^{(t-1)}(\sigma))$$
       
       By maximizing this reward, the policy learns to select tokens that the model is most confident about in context.
 
@@ -44,10 +48,10 @@ body:
     text: |
       SAS consistently outperforms heuristic schedules across reasoning benchmarks.
       
-      | Task | Model | Heuristic | **SAS (Ours)** |
+      | Task | Model | Confidence Heuristic | **SAS (Ours)** |
       |:---|:---|:---|:---|
       | **Sudoku** | SMDM-1B | 82.0% | **91.8%** |
-      | **GSM8K** | LLaDA-8B | 64.0% | **76.0%** |
+      | **GSM8K** | LLaDA-8B | 76.0% | **81.0%** |
       | **MBPP** | LLaDA-8B | 39.5% | **41.0%** |
 
 projects: []
