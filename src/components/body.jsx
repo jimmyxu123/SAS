@@ -73,8 +73,8 @@ export default class Body extends React.Component {
           return (
             <div key={'subsection-' + idx}>
               <Content title={subsection.title} />
-              {subsection.image && (
-                subsection.caption ? (
+              {subsection.image &&
+                (subsection.caption ? (
                   <figure className="uk-margin-small-bottom">
                     <img
                       src={subsection.image}
@@ -87,8 +87,7 @@ export default class Body extends React.Component {
                   </figure>
                 ) : (
                   <Content image={subsection.image} />
-                )
-              )}
+                ))}
               <Content text={subsection.text} />
             </div>
           );

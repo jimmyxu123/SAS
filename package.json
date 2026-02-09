@@ -9,7 +9,7 @@
     "postbuild": "react-snap",
     "preview": "vite preview",
     "format": "prettier src/ --check",
-    "format:fix": "prettier -w src/ --check",
+    "format:fix": "prettier src/ --write",
     "lint": "eslint src/",
     "typos": "typos",
     "typos:fix": "typos --write-changes",
