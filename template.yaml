@@ -3,6 +3,9 @@ theme: default
 organization: University of Maryland
 title: "Scheduling Thoughts"
 journal: "Preprint 2026"
+teaser: "teaser.png"
+url: "https://jimmyxu123.github.io/SAS/"
+image: "teaser.png"
 resources:
   paper: "#"
   arxiv: "https://arxiv.org"
@@ -46,6 +49,8 @@ body:
       | **Sudoku** | SMDM-1B | 82.0% | **91.8%** |
       | **GSM8K** | LLaDA-8B | 64.0% | **76.0%** |
       | **MBPP** | LLaDA-8B | 39.5% | **41.0%** |
+
+projects: []
 
 bibtex: |
   @article{xu2026scheduling,
