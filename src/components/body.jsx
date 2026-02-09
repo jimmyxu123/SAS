@@ -81,9 +81,12 @@ export default class Body extends React.Component {
                       className="uk-align-center uk-responsive-width"
                       alt=""
                     />
-                    <figcaption className="uk-text-center uk-text-meta uk-margin-small-top">
-                      {subsection.caption}
-                    </figcaption>
+                    <figcaption
+                      className="uk-text-center uk-text-meta uk-margin-small-top"
+                      dangerouslySetInnerHTML={{
+                        __html: marked.parse(subsection.caption || ''),
+                      }}
+                    />
                   </figure>
                 ) : (
                   <Content image={subsection.image} />
