@@ -36,7 +36,7 @@ body:
     image: "intro_figure.png"
     caption: |
       Figure 1: Overview of the Self-Aware Scheduling (SAS) framework.
-      Left (Training): The order policy $v_\phi$ samples multiple unmasking permutations ($\sigma_1, \sigma_2, \dots$) for a frozen diffusion model. These orders are evaluated using our Self-Aware Reward, which measures the cumulative log-likelihood of the generation under that specific order. The policy is then optimized via GRPO to favor orders that maximize the model's own confidence.
+      Left (Training): The order policy $v_\phi$ samples multiple unmasking permutations ($\sigma_1$, $\sigma_2$, $\dots$) for a frozen diffusion model. These orders are evaluated using our Self-Aware Reward, which measures the cumulative log-likelihood of the generation under that specific order. The policy is then optimized via GRPO to favor orders that maximize the model's own confidence.
       Right (Inference): The trained policy dictates the optimal unmasking sequence, guiding the diffusion model to generate high-quality outputs efficiently.
   - title: "The Self-Aware Reward"
     text: |
