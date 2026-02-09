@@ -1,3 +1,4 @@
+base_url: "/SAS"
 title: "Scheduling Thoughts"
 subtitle: "Learning the Order of Thought in Diffusion Language Models"
 description: "Self-Aware Scheduling (SAS) for optimized token unmasking."
