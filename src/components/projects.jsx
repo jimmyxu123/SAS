@@ -29,12 +29,13 @@ export default class Projects extends React.Component {
     super(props);
   }
   render() {
+    const projects = this.props.projects || [];
     return (
       <div className="uk-section">
         <h2 className="uk-heading-line uk-text-center uk-text-bold">
           <span>Relevant Projects</span>
         </h2>
-        {this.props.projects.map((project, idx) => {
+        {projects.map((project, idx) => {
           return (
             <ProjectCard
               title={project.title}
