@@ -44,7 +44,7 @@ body:
       
       $$ \mathcal{R}(x, \sigma) = \sum_{t=1}^{N} \log p_\theta^{i_t}(x_{i_t} \mid \tilde{x}^{(t-1)}(\sigma))$$
       
-      By maximizing this reward, the policy learns to select tokens that the model is most confident about in context.
+      By maximizing this reward, the policy learns to select tokens that optimizes the global trajectory.
 
   - title: "Demo of SAS on Sudoku"
     image: "sudoku_unmasking.gif"
