@@ -4,8 +4,8 @@ organization: University of Maryland
 title: 'Scheduling Thoughts: Learning the Order of Thought in Diffusion Language Models'
 journal: 'ICML 2026'
 url: 'https://jimmyxu123.github.io/SAS/'
-image: 'https://jimmyxu123.github.io/SAS/teaser.png'
-teaser: 'teaser.png'
+image: 'https://jimmyxu123.github.io/SAS/intro_figure.png'
+teaser: 'intro_figure.png'
 resources:
   paper: 'https://arxiv.org/abs/2606.23567'
   code: 'https://github.com/jimmyxu123/SAS'
