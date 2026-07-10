@@ -5,7 +5,7 @@ title: 'Scheduling Thoughts: Learning the Order of Thought in Diffusion Language
 journal: 'ICML 2026'
 url: 'https://jimmyxu123.github.io/SAS/'
 image: 'https://jimmyxu123.github.io/SAS/public/intro_figure.png'
-teaser: 'public/intro_figure.png'
+teaser: ''
 resources:
   paper: 'https://arxiv.org/abs/2606.23567'
   code: 'https://github.com/jimmyxu123/SAS'
