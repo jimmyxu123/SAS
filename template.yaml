@@ -8,7 +8,7 @@ image: 'https://jimmyxu123.github.io/SAS/public/intro_figure.png'
 teaser: ''
 resources:
   paper: 'https://arxiv.org/abs/2606.23567'
-  code: 'https://github.com/jimmyxu123/SAS'
+  code: 'https://github.com/jimmyxu123/SAS_code'
 description: 'Learning the Order of Thought in Diffusion Language Models'
 
 authors:
